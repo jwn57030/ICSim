@@ -7,16 +7,11 @@ int WINAPI WinMain(HINSTANCE hInstance,
                    LPSTR lpCmdLine,
                    int nCmdShow)
 {
-    int retval = 0;
-    mainWin *mainWindow = NULL;
+    int     retval = 0;
+    mainWin mainWindow(hInstance);
 
-    mainWindow = new mainWin(hInstance);
-
-    mainWindow->showWindow(nCmdShow);
-
-    retval = mainWindow->runMainLoop();
-
-    delete mainWindow;
+    mainWindow.showWindow(nCmdShow);
+    retval = mainWindow.runMainLoop();
 
     return retval;
 }
