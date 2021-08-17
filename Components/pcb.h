@@ -2,6 +2,7 @@
 
 /************************** Includes ***********************/
 #include <d2d1.h>
+#include "toolbox.h"
 
 /*********************** Class Definitions *****************/
 class pcb
@@ -15,9 +16,7 @@ public:
 private:
     ID2D1Factory*          pD2dFactory;
     ID2D1HwndRenderTarget* pRenderTarget;
-    ID2D1SolidColorBrush*  pLightSlateGrayBrush;
-    ID2D1SolidColorBrush*  pCornflowerBlueBrush;
-    ID2D1StrokeStyle*      pBoardTextStrokeStyle;
+    toolbox*               ptoolbox;
 };
 
 

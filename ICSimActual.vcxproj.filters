@@ -27,6 +27,9 @@
     <ClCompile Include="Components\pcb.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
+    <ClCompile Include="Components\toolbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainWin.h">
@@ -34,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="Components\pcb.h">
       <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\toolbox.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

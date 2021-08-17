@@ -3,7 +3,7 @@
 
 /***************************** Includes *************************/
 #include <windows.h>
-#include "pcb.h"
+#include "Components/pcb.h"
 
 /*********************** Class Definitions **********************/
 class mainWin

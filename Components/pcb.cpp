@@ -12,58 +12,26 @@
 pcb::pcb(HWND hWnd, UINT width, UINT heigth):pRenderTarget(NULL), pD2dFactory(NULL)
 {
     D2D1_SIZE_U                  size                      = D2D1::SizeU(width, heigth);
-    D2D1_STROKE_STYLE_PROPERTIES boardTextStrokeProperties = { D2D1_CAP_STYLE_ROUND,
-                                                               D2D1_CAP_STYLE_ROUND,
-                                                               D2D1_CAP_STYLE_ROUND,
-                                                               D2D1_LINE_JOIN_ROUND,
-                                                               5,
-                                                               D2D1_DASH_STYLE_SOLID,
-                                                               0 };
+
 
     D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &pD2dFactory);
     
     pD2dFactory->CreateHwndRenderTarget(D2D1::RenderTargetProperties(),
                                         D2D1::HwndRenderTargetProperties(hWnd, size),
                                         &pRenderTarget);
-    
-    pRenderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::LightSlateGray),
-                                         &pLightSlateGrayBrush);
 
-    pRenderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::CornflowerBlue),
-                                         &pCornflowerBlueBrush);
-
-     pD2dFactory->CreateStrokeStyle(&boardTextStrokeProperties,
-                                    nullptr,
-                                    0,
-                                    &pBoardTextStrokeStyle);
+    ptoolbox = new toolbox(pRenderTarget, pD2dFactory);
 }
 
 void pcb::draw()
 {
-    D2D1_RECT_F toolboxRect =
-    { 
-        5,
-        5,
-        200,
-        400
-    };
-    
-
-    D2D1_ROUNDED_RECT toolboxRoundedRect =
-    {
-        toolboxRect,
-        1,
-        1
-    };
-
-
     pRenderTarget->BeginDraw();
 
     pRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());
     pRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::DarkGreen));
-        
-    pRenderTarget->DrawRoundedRectangle(&toolboxRoundedRect, pLightSlateGrayBrush, 5, pBoardTextStrokeStyle);
 
+    ptoolbox->draw(pRenderTarget);
+        
     pRenderTarget->EndDraw();
 #if 0
     IDWriteFactory* pDWriteFactory = nullptr;
@@ -103,9 +71,7 @@ void pcb::draw()
 
 pcb::~pcb()
 {
-    pLightSlateGrayBrush->Release();
-    pCornflowerBlueBrush->Release();
-    pBoardTextStrokeStyle->Release();
+    delete ptoolbox;
     pRenderTarget->Release();
     pD2dFactory->Release();
 }
