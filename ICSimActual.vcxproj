@@ -140,12 +140,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="pcb.cpp" />
+    <ClCompile Include="Components\pcb.cpp" />
     <ClCompile Include="ICSim.cpp" />
     <ClCompile Include="mainwindow.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pcb.h" />
+    <ClInclude Include="Components\pcb.h" />
     <ClInclude Include="mainWin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

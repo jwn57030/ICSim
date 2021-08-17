@@ -24,7 +24,7 @@
     <ClCompile Include="mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pcb.cpp">
+    <ClCompile Include="Components\pcb.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClInclude Include="mainWin.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="pcb.h">
+    <ClInclude Include="Components\pcb.h">
       <Filter>Source Files\components</Filter>
     </ClInclude>
   </ItemGroup>
