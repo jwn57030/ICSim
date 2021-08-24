@@ -140,15 +140,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Components\pcb.cpp" />
-    <ClCompile Include="Components\toolbox.cpp" />
+    <ClCompile Include="components\pcb.cpp" />
+    <ClCompile Include="components\toolbox.cpp" />
     <ClCompile Include="ICSim.cpp" />
-    <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="MainWin.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Components\pcb.h" />
-    <ClInclude Include="Components\toolbox.h" />
-    <ClInclude Include="mainWin.h" />
+    <ClInclude Include="components\pcb.h" />
+    <ClInclude Include="components\toolbox.h" />
+    <ClInclude Include="MainWin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

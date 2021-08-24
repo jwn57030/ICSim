@@ -1,14 +1,27 @@
+/**
+* \file:       pcb.cpp
+* \Description Implementation of pcb class that manages the circuit board
+* \Date        8/23/2021
+* \author      Jason Neitzert
+*/
+
 /********************* Includes *******************************/
 #include "pcb.h"
-#if 0
-#include <dwrite.h>
-#pragma comment (lib, "dwrite.lib")
-#endif
+
 /***************** Libs To Link ********************************/
 #pragma comment(lib, "d2d1.lib")
 
-
 /***************** Public Functions **************************/
+
+/**
+* \Description Constructor for PCB Class
+* \param       hWnd   - Window the PCB should be put in.
+* \param       width  - how wide the window is where we are putting the PCB
+* \param       heigth - how hight the window is where we are putting the PCB.
+* \return      void
+* \author      Jason Neitzert
+* \date        8/23/2021
+*/
 pcb::pcb(HWND hWnd, UINT width, UINT heigth):pRenderTarget(NULL), pD2dFactory(NULL)
 {
     D2D1_SIZE_U                  size                      = D2D1::SizeU(width, heigth);
@@ -23,6 +36,27 @@ pcb::pcb(HWND hWnd, UINT width, UINT heigth):pRenderTarget(NULL), pD2dFactory(NU
     ptoolbox = new toolbox(pRenderTarget, pD2dFactory);
 }
 
+/**
+* \Description Constructor for PCB Class
+* \param       void
+* \return      void
+* \author      Jason Neitzert
+* \date        8/23/2021
+*/
+pcb::~pcb()
+{
+    delete ptoolbox;
+    pRenderTarget->Release();
+    pD2dFactory->Release();
+}
+
+/**
+* \Description Draw thre PCB and everything on it
+* \param       void
+* \return      void
+* \author      Jason Neitzert
+* \date        8/23/2021
+*/
 void pcb::draw()
 {
     pRenderTarget->BeginDraw();
@@ -33,45 +67,6 @@ void pcb::draw()
     ptoolbox->draw(pRenderTarget);
         
     pRenderTarget->EndDraw();
-#if 0
-    IDWriteFactory* pDWriteFactory = nullptr;
-    IDWriteTextFormat* pTextFormat = nullptr;
-    
-    const wchar_t* wszText = nullptr;
-    UINT32 cTextLength = 0;
-
-    DWriteCreateFactory(
-        DWRITE_FACTORY_TYPE_SHARED,
-        __uuidof(IDWriteFactory),
-        reinterpret_cast<IUnknown**>(&pDWriteFactory)
-    );
-
-
-    pDWriteFactory->CreateTextFormat(
-        L"Gabriola",                // Font family name.
-        NULL,                       // Font collection (NULL sets it to use the system font collection).
-        DWRITE_FONT_WEIGHT_REGULAR,
-        DWRITE_FONT_STYLE_NORMAL,
-        DWRITE_FONT_STRETCH_NORMAL,
-        72.0f,
-        L"en-us",
-        &pTextFormat
-    );
-
-    wszText = L"Hello World using  DirectWrite!";
-    cTextLength = (UINT32)wcslen(wszText);
-
-    pTextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
-    pTextFormat->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
-
-    
-#endif
 }
 
 
-pcb::~pcb()
-{
-    delete ptoolbox;
-    pRenderTarget->Release();
-    pD2dFactory->Release();
-}

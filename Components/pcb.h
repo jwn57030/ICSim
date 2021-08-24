@@ -1,22 +1,26 @@
+/**
+* \file:       pcb.cpp
+* \Description Definition of pcb class that manages the circuit board
+* \Date        8/23/2021
+* \author      Jason Neitzert
+*/
+
 #pragma once
 
 /************************** Includes ***********************/
-#include <d2d1.h>
 #include "toolbox.h"
 
 /*********************** Class Definitions *****************/
-class pcb
+class PCB
 {
 public:
-    pcb(HWND hWnd, UINT width, UINT heigth);
-    ~pcb();
+    PCB(HWND hWnd, UINT width, UINT heigth);
+    ~PCB();
 
     void draw();
 
 private:
     ID2D1Factory*          pD2dFactory;
     ID2D1HwndRenderTarget* pRenderTarget;
-    toolbox*               ptoolbox;
+    Toolbox*               ptoolbox;
 };
-
-

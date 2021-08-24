@@ -1,25 +1,30 @@
+/**
+* \file:       MainWin.h
+* \Description Definition of Main Window Class
+* \Date        8/23/2021
+* \author      Jason Neitzert
+*/
 
 #pragma once
 
 /***************************** Includes *************************/
 #include <windows.h>
-#include "Components/pcb.h"
+#include "components/PCB.h"
 
 /*********************** Class Definitions **********************/
-class mainWin
+class MainWin
 {
-    public:
-        mainWin(HINSTANCE hInstance);
-        ~mainWin();
+   public:
+      ~MainWin();
 
-        void showWindow(int nCmdShow);
-        WPARAM runMainLoop();
+      void showWindow(HINSTANCE hInstance, int nCmdShow);
+      WPARAM runMainLoop();
      
-    private:
-        pcb *pMainPcb = nullptr;
-        HWND hWnd     = nullptr;
+   private:
+      PCB *pMainPcb = nullptr;
+      HWND hWnd     = nullptr;
 
-        static LRESULT CALLBACK mainWinMsgCallback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-        void draw();
+      static LRESULT CALLBACK mainWinMsgCallback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+      void draw();
 };
 
