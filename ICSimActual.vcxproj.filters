@@ -21,9 +21,6 @@
     <ClCompile Include="ICSim.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainWin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="components\pcb.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
@@ -32,9 +29,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainWin.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="components\pcb.h">
       <Filter>Source Files\components</Filter>
     </ClInclude>

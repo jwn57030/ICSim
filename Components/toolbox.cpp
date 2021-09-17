@@ -12,7 +12,7 @@
 /*********************** Class Definitions *****************/
 
 
-toolbox::toolbox(ID2D1HwndRenderTarget* pRenderTarget, ID2D1Factory* pD2dFactory)
+Toolbox::Toolbox(ID2D1HwndRenderTarget* pRenderTarget, ID2D1Factory* pD2dFactory)
 {
     D2D1_STROKE_STYLE_PROPERTIES boardTextStrokeProperties = { D2D1_CAP_STYLE_ROUND,
                                                                D2D1_CAP_STYLE_ROUND,
@@ -32,7 +32,7 @@ toolbox::toolbox(ID2D1HwndRenderTarget* pRenderTarget, ID2D1Factory* pD2dFactory
     DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), reinterpret_cast<IUnknown**>(&p_write_factory));
 }
 
-void toolbox::draw(ID2D1HwndRenderTarget* pRenderTarget)
+void Toolbox::draw(ID2D1HwndRenderTarget* pRenderTarget)
 {
     IDWriteTextLayout *p_text_layout = nullptr;
     IDWriteTextFormat* pTextFormat = nullptr;
@@ -70,7 +70,7 @@ void toolbox::draw(ID2D1HwndRenderTarget* pRenderTarget)
 
 }
 
-toolbox::~toolbox()
+Toolbox::~Toolbox()
 {
     p_write_factory->Release();
 }

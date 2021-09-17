@@ -22,7 +22,7 @@
 * \author      Jason Neitzert
 * \date        8/23/2021
 */
-pcb::pcb(HWND hWnd, UINT width, UINT heigth):pRenderTarget(NULL), pD2dFactory(NULL)
+PCB::PCB(HWND hWnd, UINT width, UINT heigth):pRenderTarget(NULL), pD2dFactory(NULL)
 {
     D2D1_SIZE_U                  size                      = D2D1::SizeU(width, heigth);
 
@@ -33,7 +33,7 @@ pcb::pcb(HWND hWnd, UINT width, UINT heigth):pRenderTarget(NULL), pD2dFactory(NU
                                         D2D1::HwndRenderTargetProperties(hWnd, size),
                                         &pRenderTarget);
 
-    ptoolbox = new toolbox(pRenderTarget, pD2dFactory);
+    ptoolbox = new Toolbox(pRenderTarget, pD2dFactory);
 }
 
 /**
@@ -43,7 +43,7 @@ pcb::pcb(HWND hWnd, UINT width, UINT heigth):pRenderTarget(NULL), pD2dFactory(NU
 * \author      Jason Neitzert
 * \date        8/23/2021
 */
-pcb::~pcb()
+PCB::~PCB()
 {
     delete ptoolbox;
     pRenderTarget->Release();
@@ -57,7 +57,7 @@ pcb::~pcb()
 * \author      Jason Neitzert
 * \date        8/23/2021
 */
-void pcb::draw()
+void PCB::draw()
 {
     pRenderTarget->BeginDraw();
 

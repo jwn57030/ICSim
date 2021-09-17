@@ -143,12 +143,10 @@
     <ClCompile Include="components\pcb.cpp" />
     <ClCompile Include="components\toolbox.cpp" />
     <ClCompile Include="ICSim.cpp" />
-    <ClCompile Include="MainWin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="components\pcb.h" />
     <ClInclude Include="components\toolbox.h" />
-    <ClInclude Include="MainWin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

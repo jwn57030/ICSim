@@ -10,11 +10,11 @@
 #include <d2d1.h>
 #include <dwrite.h>
 
-class toolbox
+class Toolbox
 {
 public:
-    toolbox(ID2D1HwndRenderTarget* pRenderTarget, ID2D1Factory* pD2dFactory);
-    ~toolbox();
+    Toolbox(ID2D1HwndRenderTarget* pRenderTarget, ID2D1Factory* pD2dFactory);
+    ~Toolbox();
 
     void draw(ID2D1HwndRenderTarget* pRenderTarget);
 
