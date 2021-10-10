@@ -200,6 +200,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
     MessageBox(hWnd, L"TESTING THE ERROR", L"ERROR TEST", MB_OK | MB_ICONSTOP | MB_SYSTEMMODAL);
 
+    /* Test */
+
     return retVal;
 }
 
